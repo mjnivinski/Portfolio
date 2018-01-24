@@ -13,26 +13,26 @@
 
 """ Code is static and tailored to this problem """
 def answer():
-    """ Beginning sum of the diagonals without counting the center so we start at 1 instead of 0 """
+""" Beginning sum of the diagonals without counting the center so we start at 1 instead of 0 """
     sum = 1
     
-    """ This formula is derived from adding every layer around the center """
-    """ This will be a step by step display of the origin of the equation inside the loop """
-    """ 3 + 5 + 7 + 9 """ """ This is the first layer  when x = 1"""
-    """ (1 + 2) + (1 + 4) + (1 + 6) + (1 + 8) """
-    """ (1 + 1 + 1 + 1) + (2 + 4 + 6 + 8)"""
-    """ 4(1) + 20"""
-    """ the second layer """
-    """ 13 + 17 + 21 + 25 """
-    """ (9 + 4) + (9 + 8) + (9 + 12) + (9 + 16) """
-    """ 4(9) + (4 + 8 + 12 + 16) """
-    """ 4(9) + 40 """
-    """ 4(9) + 2(20) """
-    """ layer 1 4(1) + 1(20)
-    """ layer 2 4(9) + 2(20)
-    """ a formula is needed to turn 1 into 1 and 2 into 9 """
-    """ (2x - 1)^2 """ """ ( 2(2) - 1 )^2 = 9 || ( 2(1) - 1 )^2 = 1 """
-    """ the conclusion is 4 * (2*x - 1)**2 + 20*x """
+""" This formula is derived from adding every layer around the center """
+""" This will be a step by step display of the origin of the equation inside the loop """
+""" 3 + 5 + 7 + 9 """ """ This is the first layer  when x = 1"""
+""" (1 + 2) + (1 + 4) + (1 + 6) + (1 + 8) """
+""" (1 + 1 + 1 + 1) + (2 + 4 + 6 + 8)"""
+""" 4(1) + 20"""
+""" the second layer """
+""" 13 + 17 + 21 + 25 """
+""" (9 + 4) + (9 + 8) + (9 + 12) + (9 + 16) """
+""" 4(9) + (4 + 8 + 12 + 16) """
+""" 4(9) + 40 """
+""" 4(9) + 2(20) """
+""" layer 1 4(1) + 1(20)
+""" layer 2 4(9) + 2(20)
+""" a formula is needed to turn 1 into 1 and 2 into 9 """
+""" (2x - 1)^2 """ """ ( 2(2) - 1 )^2 = 9 || ( 2(1) - 1 )^2 = 1 """
+""" the conclusion is 4 * (2*x - 1)**2 + 20*x """
     
     
     for x in range(1, 501):
