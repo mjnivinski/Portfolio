@@ -70,5 +70,5 @@ def abunCheck(a):
 
 """ IMPROVEMENTS """
 """ this code executes in under 5 seconds """
-""" while their are possibly ways to improve this code. The problem cannot be extended any further than it already is """
+""" while their are possibly ways to improve this code. The problem does not grow any larger. It already has the maximum range"""
 """ so no improvements will be seeked """
