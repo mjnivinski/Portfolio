@@ -10,13 +10,8 @@
 # What is the sum of the diagonals (parenthesised numbers)
 
 """ THE CODE IS ALONG THE BOTTOM FOLLOWED BY AN IMPROVEMENT IDEA """
-
-""" Code is static and tailored to this problem """
-def answer():
-""" Beginning sum of the diagonals without counting the center so we start at 1 instead of 0 """
-    sum = 1
     
-""" This formula is derived from adding every layer around the center """
+""" The formula in the code is derived from adding every layer around the center """
 """ This will be a step by step display of the origin of the equation inside the loop """
 """ 3 + 5 + 7 + 9 """ """ This is the first layer  when x = 1"""
 """ (1 + 2) + (1 + 4) + (1 + 6) + (1 + 8) """
@@ -34,6 +29,10 @@ def answer():
 """ (2x - 1)^2 """ """ ( 2(2) - 1 )^2 = 9 || ( 2(1) - 1 )^2 = 1 """
 """ the conclusion is 4 * (2*x - 1)**2 + 20*x """
     
+""" Code is static and tailored to this problem """
+def answer():
+""" Beginning sum of the diagonals without counting the center so we start at 1 instead of 0 """
+    sum = 1
     
     for x in range(1, 501):
         sum+=(4*((2*x - 1)**2) + 20*x)
