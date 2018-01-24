@@ -31,7 +31,7 @@
     
 """ Code is static and tailored to this problem """
 def answer():
-""" Beginning sum of the diagonals without counting the center so we start at 1 instead of 0 """
+    #Beginning sum of the diagonals without counting the center so we start at 1 instead of 0 or higher
     sum = 1
     
     for x in range(1, 501):
