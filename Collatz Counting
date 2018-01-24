@@ -1,0 +1,57 @@
+""" Collatz sequence, take any number if its not 1 then its done. """
+""" If its even divide it by 2 if its odd multiply it by 3 and add 1 to it. """
+""" Repeat to any number and it will eventually reach 1 """
+""" Problem: find the number with the longest collatz sequence under a million """
+
+def problem14():
+    """ Variable Sets """
+    
+    """ start at 1 to record every numbers collatz sequence count, even for 1 """
+    longest = 1
+    """ longest count discovered """
+    longestC = 0
+    """ storing each number's sequence length (the same code without this takes 20 fold time to complete) """
+    sequenceList = []
+    
+    """ Checking all numbers up to a million """
+    for x in range(1, 1000001):
+        if(x%50000==0):
+            print(x)
+            
+        """ s is a placeholder to be manipulated in place of x """
+        s = x
+        count = 0
+
+        """ Calculate each sequence for each number """
+        while s != 1:
+            count+=1
+            if s%2 == 0:
+                s=s/2
+            else:
+                s=(s*3)+1
+
+            """ If the sequence ever drops below the current number. then we already know the remaining sequence numbers """
+            if s < x:
+                count += sequenceList[int(s)-1]
+                s = 1
+        
+        """ Recording each sequence length here """
+        sequenceList.append(count)
+
+
+        """ hold record longest count """
+        if(count > longestC):
+            longest = x
+            longestC = count
+    print(longest)
+    print(longestC)
+    return
+ 
+ 
+""" Code executes under 4 seconds """
+""" An idea for improvement: when a number is initially odd. it gets multiplied by 3 and 1 added to itself. """
+""" So when that number goes along following the sequence. each large number has a remaining number of sequences. """
+""" If I recorded every single one of the steps and counted each remaining, then a number with 100 steps would add 100 new known sequence counts """
+""" Some recursive code could be written to follow a sequence. """
+""" I believe this would be the fastest way to record known sequence counts """
+""" only issue is the order that you get the numbers is not incremental """
