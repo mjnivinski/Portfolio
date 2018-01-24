@@ -1,0 +1,74 @@
+""" A perfect number is a number whos divisors summed equal itself 28 = 1 + 2 + 4 + 7 + 14 """
+""" A deficient number is when its divisors summed are less than itself """
+""" An abundant number is when its divisors  summed are more than itself """
+
+""" PROBLEM: Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers. """
+
+""" First attempt to solve problem. It counts down possible numbers and makes a delta with the top abundant numbers from a known list. gainst the lowest number and then just checks all the possibilities """
+""" Really slow answer. i realized i was checking all sums of two numbers a huge amount of times """
+
+""" Second attempt. this one makes a list of the first 21000 natural numbers then just goes and checks every single combination of two abundunt sums """
+""" Much faster run """
+
+""" NOTE this code will not work unless you run abunList() first """
+""" The reason this is not included in the base code is an attempt at speed """
+""" having ready access to that file makes the calculations much quicker """
+def problem23():
+    abunList = getList()
+    theList = []
+
+    #In a previous version of this code it was discovered the largest number that cant be the sum of two abundant numbers was 20161
+    #So the code just checks a little further past it
+    for i in range(21000):
+        theList.append(i+1)
+
+    #this loop just sums all possible combinations of abundant numbers. and if that number is below 21000 then we remove it from the real number list
+    for i in range(len(abunList)):
+        for j in range(len(abunList)):
+            a = abunList[i] + abunList[j]
+            if(a <= 21000):
+                theList[a-1]=0
+            if(a > 21000):
+                break
+    return(sum(theList))
+
+""" only ever have to run this once, only if the file is not collected """
+""" This function creates a list of all abundant numbers below 28124 """
+def abunList():
+    aList = []
+    for i in range(12, 28124):
+        if(abunCheck(i)!=0):
+            aList.append(i)
+    print("List compiled...")
+    with open("abunList.csv", "w") as out_file:
+        for i in range(len(aList)):
+            out_string = ""
+            out_string += str(aList[i])
+            out_string += "\n"
+            out_file.write(out_string)
+
+""" Gets our list from storage for easier access """
+def getList():
+    theList = []
+    with open("abunList.csv", "r") as f:
+        for line in f:
+            theList.append(int(line))
+    return(theList)
+
+""" check if a number is abundant, returns 0 if it is not """
+def abunCheck(a):
+    sum = 0
+    b = (a%2 + a)/2
+    for i in range(1, int(b) + 1):
+        if(a % i == 0):
+            sum += i
+        if(sum > a):
+            return(a)
+    return(0)
+
+
+
+""" IMPROVEMENTS """
+""" this code executes in under 5 seconds """
+""" while their are possibly ways to improve this code. The problem cannot be extended any further than it already is """
+""" so no improvements will be seeked """
